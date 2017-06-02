@@ -8,7 +8,7 @@ function slugify(text) {
 }
 
 function displayBranchNameSuggestions() {
-  details = $('.edit.details');
+  details = $('.story .edit.details');
 
   details.each(function () {
     id = $(_this).find('input.id')[0].value;
@@ -28,8 +28,8 @@ function displayBranchNameSuggestions() {
 
 $('body').click(function (event) {
   setTimeout(function () {
-    var collapsers = $('a.collapser');
-    if(collapsers.length > 0){
+    var expanded_stories = $('.story .edit.details');
+    if(expanded_stories.length > 0){
       displayBranchNameSuggestions();
     }
   }, 1000);
