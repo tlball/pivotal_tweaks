@@ -11,17 +11,17 @@ function displayBranchNameSuggestions() {
   details = $('.edit.details');
 
   details.each(function () {
-    id = $(this).find('input.id')[0].value;
-    ticket_title = $(this).find('[name="story[name]"]')[0].innerHTML;
+    _this = this;
+    id = $(_this).find('input.id')[0].value;
+    ticket_title = $(_this).find('[name="story[name]"]')[0].innerHTML;
     slug = slugify(id + "-" + ticket_title);
-    if ($(this).find('section.controls .branch_suggestion').length === 0) {
-      $(this).find('section.controls').append(
-        '<div><button type="button" title="Copy branch name suggestion to clipboard" data-clipboard-text="' +
-          slug +
-          '" class="branch_suggestion clipboard_button" tabindex="-1">' +
-          slug +
-          '</button></div>'
-      );
+    if ($(_this).find('section.controls .branch_suggestion').length === 0) {
+      $.get(chrome.extension.getURL('/branch_name_template.html'), function(data) {
+        $(_this).find('section.controls').append(data);
+        var suggestion_btn = $(_this).find('.branch_suggestion_btn.clipboard_button');
+        suggestion_btn.attr('data-clipboard-text', slug);
+        $(_this).find('.branch_suggestion_btn.clipboard_button').append(slug);
+      });
     }
   });
 }
