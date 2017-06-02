@@ -11,10 +11,10 @@ function displayBranchNameSuggestions() {
   details = $('.edit.details');
 
   details.each(function () {
-    _this = this;
     id = $(_this).find('input.id')[0].value;
     ticket_title = $(_this).find('[name="story[name]"]')[0].innerHTML;
     slug = slugify(id + "-" + ticket_title);
+    var _this = this;
     if ($(_this).find('section.controls .branch_suggestion').length === 0) {
       $.get(chrome.extension.getURL('/branch_name_template.html'), function(data) {
         $(_this).find('section.controls').append(data);
