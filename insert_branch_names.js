@@ -32,5 +32,5 @@ $('body').click(function (event) {
     if(expanded_stories.length > 0){
       displayBranchNameSuggestions();
     }
-  }, 1000);
+  }, 500);
 });
