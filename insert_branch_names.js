@@ -26,4 +26,11 @@ function displayBranchNameSuggestions() {
   });
 }
 
-displayBranchNameSuggestions();
+$('body').click(function (event) {
+  setTimeout(function () {
+    var collapsers = $('a.collapser');
+    if(collapsers.length > 0){
+      displayBranchNameSuggestions();
+    }
+  }, 1000);
+});
