@@ -18,7 +18,7 @@ function displayBranchNameSuggestions() {
       $(this).find('section.controls').append(
         '<div><button type="button" title="Copy branch name suggestion to clipboard" data-clipboard-text="' +
           slug +
-          '" class="branch_suggestion clipboard_button hoverable left_endcap" tabindex="-1">' +
+          '" class="branch_suggestion clipboard_button" tabindex="-1">' +
           slug +
           '</button></div>'
       );
