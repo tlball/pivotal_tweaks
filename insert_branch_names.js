@@ -17,10 +17,12 @@ function displayBranchNameSuggestions() {
       ticket_title = $(_this).find('[name="story[name]"]')[0].innerHTML;
       slug = slugify(id + "-" + ticket_title);
       $.get(chrome.extension.getURL('/branch_name_template.html'), function(data) {
-        $(_this).find('section.controls').append(data);
+        $(_this).find('div.actions').append(data);
         var suggestion_btn = $(_this).find('.branch_suggestion_btn.clipboard_button');
         suggestion_btn.attr('data-clipboard-text', slug);
-        $(_this).find('.branch_suggestion_btn.clipboard_button').append(slug);
+        var suggestion_btn_text = $(_this).find('.branch_suggestion_btn.text_value');
+        suggestion_btn_text.attr('data-clipboard-text', slug);
+        suggestion_btn_text.attr('value', slug);
       });
     }
   });
