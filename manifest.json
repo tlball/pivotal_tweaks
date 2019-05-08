@@ -15,7 +15,7 @@
     "matches": ["https://www.pivotaltracker.com/n/projects/*"],
     "js" : ["jquery.min.js","insert_branch_names.js"]
   }],
-  "web_accessible_resources" : ["branch_name_template.html"],
+  "web_accessible_resources" : ["branch_name_template.html", "images/*.png"],
   "permissions": ["activeTab"]
 
 }

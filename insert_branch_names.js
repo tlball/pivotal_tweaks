@@ -23,9 +23,17 @@ function displayBranchNameSuggestions() {
         var suggestion_btn_text = $(_this).find('.branch_suggestion_btn.text_value');
         suggestion_btn_text.attr('data-clipboard-text', slug);
         suggestion_btn_text.attr('value', slug);
+        var suggestion_btn_shortened = $(_this).find('.branch_suggestion_btn.shortened img.shortened_branch_icon');
+        suggestion_btn_shortened.attr('data-clipboard-text', shortenBranchSlug(slug));
+        suggestion_btn_shortened.attr('src', chrome.extension.getURL("images/branch_icon.png"));
       });
     }
   });
+}
+
+function shortenBranchSlug(slug) {
+  var size = 40;
+  return slug.slice(0, size-1);
 }
 
 $('body').click(function (event) {
